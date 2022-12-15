@@ -1,4 +1,4 @@
-pip==22.3.1
+install --upgrade pip
 plotly_express==0.4.0
 pandas
 numpy
