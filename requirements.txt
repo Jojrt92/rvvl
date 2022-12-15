@@ -1,4 +1,4 @@
-install --upgrade pip
+pip-upgrader
 plotly_express==0.4.0
 pandas
 numpy
