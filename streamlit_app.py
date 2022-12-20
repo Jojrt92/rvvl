@@ -22,7 +22,7 @@ fig = px.scatter_mapbox(st.session_state.df,
                         mapbox_style="dark",
                         size_max=21, 
                         zoom=10.3,
-                       width=375, height=200)
+                       width=455, height=350)
 
 #----------------------------Functions---------------------------------#
 #def prayer_count(number,school):
