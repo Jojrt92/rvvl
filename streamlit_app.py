@@ -20,7 +20,7 @@ fig = px.scatter_mapbox(st.session_state.df,
                         hover_name = "school",
                         color_continuous_scale=px.colors.cyclical.IceFire,
                         mapbox_style="dark",
-                        size_max=14, 
+                        size_max=10, 
                         zoom=9.2,
                        width=455, height=420)
 
@@ -53,8 +53,8 @@ if st.button('Update revival map'):
                         hover_name = "school",
                         color_continuous_scale=px.colors.cyclical.IceFire,
                         mapbox_style="dark",
-                        size_max=21, 
-                        zoom=10.3,
+                        size_max=10, 
+                        zoom=9.2,
                        width=455, height=420)
     
 
