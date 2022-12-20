@@ -20,9 +20,9 @@ fig = px.scatter_mapbox(st.session_state.df,
                         hover_name = "school",
                         color_continuous_scale=px.colors.cyclical.IceFire,
                         mapbox_style="dark",
-                        size_max=21, 
-                        zoom=10.3,
-                       width=455, height=350)
+                        size_max=14, 
+                        zoom=9.2,
+                       width=455, height=420)
 
 #----------------------------Functions---------------------------------#
 #def prayer_count(number,school):
@@ -55,7 +55,7 @@ if st.button('Update revival map'):
                         mapbox_style="dark",
                         size_max=21, 
                         zoom=10.3,
-                       width=375, height=200)
+                       width=455, height=420)
     
 
 #fig.update_traces(cluster=dict(enabled=True))
