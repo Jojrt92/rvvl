@@ -41,15 +41,13 @@ plot_spot = st.empty()
 school = st.selectbox('Select school being prayed for revival',(df["school"]), index = 0)
 number = st.number_input(label = 'Number of people', step = 1, min_value = 1)
 
-if 'df' not in st.session_state:
-    st.session_state.df = df
-    
-if st.button('Update revival map'):
-    original_count = st.session_state.df.loc[school,"count"]
+@st.cache
+def update_revival_map(df, school, number):
+    original_count = df.loc[school,"count"]
     original_count +=  number
-    st.session_state.df.loc[school.upper(),['count']] = original_count
-    
-    fig = px.scatter_mapbox(st.session_state.df, 
+    df.loc[school.upper(),['count']] = original_count
+
+    fig = px.scatter_mapbox(df, 
                         lat="latitude", 
                         lon="longitude",     
                         color="zone_code", 
@@ -60,6 +58,16 @@ if st.button('Update revival map'):
                         size_max=10, 
                         zoom=9.2,
                        width=455, height=420)
+
+    return fig
+
+if 'df' not in st.session_state:
+    st.session_state.df = df
+
+if st.button('Update revival map'):
+    with plot_spot:
+        fig = update_revival_map(st.session_state.df, school, number)
+        st.plotly_chart(fig)
 
 
 #fig.update_traces(cluster=dict(enabled=True))
